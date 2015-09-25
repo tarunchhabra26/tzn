@@ -1,0 +1,52 @@
+<h1>History details</h1>
+<p>
+  <strong>ID:</strong>
+  <%= @history.id %>
+</p>
+
+<p>
+  <strong>Book ID:</strong>
+  <%= @history.book_id %>
+</p>
+
+<p>
+  <strong>History Status:</strong>
+  <%= @history.history_status %>
+</p>
+
+<p>
+  <strong>User ID:</strong>
+  <%= @history.user_id %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @history.comment %>
+</p>
+
+<p>
+  <strong>Created By:</strong>
+  <%= @history.created_by %>
+</p>
+
+<p>
+  <strong>Created At:</strong>
+  <%= @history.created_at %>
+</p>
+
+<p>
+  <strong>Last Updated By:</strong>
+  <%= @history.updated_by %>
+</p>
+
+<p>
+  <strong>Last Updated At:</strong>
+  <%= @history.updated_at%>
+</p>
+
+<p>
+  <strong>Row State:</strong>
+  <%= @history.row_state %>
+</p>
+
+<%= link_to 'Back', histories_path %>

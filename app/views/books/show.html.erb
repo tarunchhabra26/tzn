@@ -1,0 +1,57 @@
+<h1>Book details</h1>
+<p>
+  <strong>Title:</strong>
+  <%= @book.title %>
+</p>
+
+<p>
+  <strong>ISBN:</strong>
+  <%= @book.isbn %>
+</p>
+
+<p>
+  <strong>Author(s):</strong>
+  <%= @book.authors %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @book.description %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @book.status %>
+</p>
+
+<p>
+  <strong>Return Date:</strong>
+  <%= @book.return_date %>
+</p>
+
+<p>
+  <strong>Created By:</strong>
+  <%= @book.created_by %>
+</p>
+
+<p>
+  <strong>Created At:</strong>
+  <%= @book.created_at %>
+</p>
+
+<p>
+  <strong>Last Updated By:</strong>
+  <%= @book.last_updated_by %>
+</p>
+
+<p>
+  <strong>Last Updated At:</strong>
+  <%= @book.updated_at%>
+</p>
+
+<p>
+  <strong>Row State:</strong>
+  <%= @book.row_state %>
+</p>
+
+<%= link_to 'Back', books_path %>
