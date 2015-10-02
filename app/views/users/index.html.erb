@@ -1,25 +1,35 @@
+<p id="notice"><%= notice %></p>
+
 <h1>Listing Users</h1>
 
 <table>
-  <tr>
-    <th>FName</th>
-    <th>LName</th>
-    <th>Email Id</th>
-    <th colspan="2"></th>
-  </tr>
+  <thead>
+    <tr>
+      <th>Fname</th>
+      <th>Lname</th>
+      <th>Email</th>
+      <th>Sec que</th>
+      <th>Ans</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
 
-  <% @users.each do |user| %>
+  <tbody>
+    <% @users.each do |user| %>
       <tr>
         <td><%= user.fname %></td>
         <td><%= user.lname %></td>
-        <td><%= user.emailid%></td>
-        <td><%= link_to 'Show', user_path(user) %></td>
+        <td><%= user.email %></td>
+        <td><%= user.sec_que %></td>
+        <td><%= user.ans %></td>
+        <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Delete', user_path(user),
-                        method: :delete,
-                        data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-  <% end %>
+    <% end %>
+  </tbody>
 </table>
+
+<br>
 
 <%= link_to 'New User', new_user_path %>
