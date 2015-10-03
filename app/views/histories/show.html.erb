@@ -1,52 +1,35 @@
-<h1>History details</h1>
+<!%= Book.find(params[:isbn])%>
+<p id="notice"><%= notice %></p>
+
 <p>
-  <strong>ID:</strong>
-  <%= @history.id %>
+  <strong>Isbn:</strong>
+  <%= @history.isbn %>
 </p>
 
 <p>
-  <strong>Book ID:</strong>
-  <%= @history.book_id %>
+  <strong>Book Isbn:</strong>
+  <%= @book.isbn %>
 </p>
 
 <p>
-  <strong>History Status:</strong>
-  <%= @history.history_status %>
+  <strong>Email:</strong>
+  <%= @history.email %>
 </p>
 
 <p>
-  <strong>User ID:</strong>
-  <%= @history.user_id %>
+  <strong>Checkout:</strong>
+  <%= @history.checkout %>
 </p>
 
 <p>
-  <strong>Comment:</strong>
-  <%= @history.comment %>
+  <strong>Checkin:</strong>
+  <%= @check.checkin %>
 </p>
 
 <p>
-  <strong>Created By:</strong>
-  <%= @history.created_by %>
+  <strong>Status:</strong>
+  <%= @check.status %>
 </p>
 
-<p>
-  <strong>Created At:</strong>
-  <%= @history.created_at %>
-</p>
-
-<p>
-  <strong>Last Updated By:</strong>
-  <%= @history.updated_by %>
-</p>
-
-<p>
-  <strong>Last Updated At:</strong>
-  <%= @history.updated_at%>
-</p>
-
-<p>
-  <strong>Row State:</strong>
-  <%= @history.row_state %>
-</p>
-
-<%= link_to 'Back', histories_path %>
+<!%= link_to 'Edit', edit_check_path(@check) %> |
+<%= link_to 'Back', checks_path %>

@@ -11,68 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150924113451) do
-
-  create_table "articles", force: :cascade do |t|
-    t.string   "title",      limit: 255
-    t.text     "text",       limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-  end
-
-  create_table "book_histories", force: :cascade do |t|
-    t.integer  "book_id",        limit: 4
-    t.integer  "history_status", limit: 4
-    t.integer  "user_id",        limit: 4
-    t.string   "comment",        limit: 255
-    t.integer  "created_by",     limit: 4
-    t.integer  "updated_by",     limit: 4
-    t.integer  "row_state",      limit: 4
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-  end
+ActiveRecord::Schema.define(version: 20150925042556) do
 
   create_table "books", force: :cascade do |t|
-    t.string   "title",           limit: 255
-    t.integer  "isbn",            limit: 4
-    t.string   "authors",         limit: 255
-    t.string   "description",     limit: 255
-    t.string   "status",          limit: 255
-    t.datetime "return_date"
-    t.integer  "created_by",      limit: 4
-    t.integer  "last_updated_by", limit: 4
-    t.integer  "row_state",       limit: 4
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.string  "isbn",        limit: 100,   null: false
+    t.string  "title",       limit: 100,   null: false
+    t.string  "author",      limit: 100
+    t.text    "description", limit: 65535
+    t.boolean "status",                    null: false
+    t.string  "email",       limit: 255
   end
 
   create_table "histories", force: :cascade do |t|
-    t.integer  "book_id",        limit: 4
-    t.integer  "history_status", limit: 4
-    t.integer  "user_id",        limit: 4
-    t.string   "comment",        limit: 255
-    t.integer  "created_by",     limit: 4
-    t.integer  "updated_by",     limit: 4
-    t.integer  "row_state",      limit: 4
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-  end
-
-  create_table "students", force: :cascade do |t|
-    t.string   "first_name", limit: 255
-    t.string   "last_name",  limit: 255
-    t.integer  "age",        limit: 4
-    t.integer  "student_id", limit: 4
+    t.string   "isbn",       limit: 100, null: false
+    t.string   "email",      limit: 100, null: false
+    t.datetime "checkout"
+    t.datetime "checkin"
+    t.string   "status",     limit: 100, null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "fname",      limit: 255
-    t.string   "lname",      limit: 255
-    t.string   "emailid",    limit: 255
-    t.string   "securityq",  limit: 255
-    t.string   "ans",        limit: 255
+    t.string   "email",      limit: 100, null: false
+    t.string   "password",   limit: 100, null: false
+    t.string   "name",       limit: 100, null: false
+    t.boolean  "is_admin",               null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end

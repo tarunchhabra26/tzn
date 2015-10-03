@@ -1,17 +1,13 @@
-<h1>Book details</h1>
-<p>
-  <strong>Title:</strong>
-  <%= @book.title %>
-</p>
+<p id="notice"><%= notice %></p>
 
 <p>
-  <strong>ISBN:</strong>
+  <strong>Isbn:</strong>
   <%= @book.isbn %>
 </p>
 
 <p>
-  <strong>Author(s):</strong>
-  <%= @book.authors %>
+  <strong>Title:</strong>
+  <%= @book.title %>
 </p>
 
 <p>
@@ -20,38 +16,33 @@
 </p>
 
 <p>
+  <strong>Author:</strong>
+  <%= @book.author %>
+</p>
+
+<p>
   <strong>Status:</strong>
   <%= @book.status %>
 </p>
 
-<p>
-  <strong>Return Date:</strong>
-  <%= @book.return_date %>
-</p>
+<% @book = Book.find(params[:id])%>
 
-<p>
-  <strong>Created By:</strong>
-  <%= @book.created_by %>
-</p>
+<!%= form_for(@user) do |f| %>
+  <!%= f.label :email %><br>
+  <!%= f.text_field :email %>
+  <!%= f.hidden_field :isbn, :value = @book.isbn %>
+  <!%= link_to 'Checkout', checkout_book_path(@book) %> 
+  <!%= f.submit %>
+<!% end %>
 
-<p>
-  <strong>Created At:</strong>
-  <%= @book.created_at %>
-</p>
+<% if (!isadmin) && ((current_user[:email] == @book.email) || (@book.email == nil))%>
 
-<p>
-  <strong>Last Updated By:</strong>
-  <%= @book.last_updated_by %>
-</p>
 
-<p>
-  <strong>Last Updated At:</strong>
-  <%= @book.updated_at%>
-</p>
+<% if @book.status %>
+<%= link_to 'Checkout', checkout_book_path(@book) %> |
+<%else%>
+<%= link_to 'CheckIn', checkin_book_path(@book) %> |
+<%end%>
 
-<p>
-  <strong>Row State:</strong>
-  <%= @book.row_state %>
-</p>
-
-<%= link_to 'Back', books_path %>
+<%end%>
+<%= link_to 'Home', root_path %>

@@ -1,32 +1,38 @@
 Rails.application.routes.draw do
-
-  get 'user/justify'
+  resources :histories
+  get 'home/index'
 
   resources :users
-
-  get 'users/new'
-
-  resources :students
-
-  get 'students/new'
-
-  resources :histories
-
-  get 'histories/new'
-
   resources :books
 
-  get 'books/new'
+  resources :sessions, only: [:new, :create, :destroy]
 
-  resources :articles
+  root :to => 'home#index'
+  # root :to => 'sessions#new'
+  get "home/index"
 
-  get 'articles/new'
+  get '/signin',  to: 'sessions#new'
+  get '/signup',  to: 'users#new'
+  get '/signout', to: 'sessions#destroy', via: :delete
+  get '/search', to: 'books#index'
+  get '/books/:id/checkout(.:format)' => 'books#checkout', as: :checkout_book
+  get '/books/:id/checkin(.:format)' => 'books#checkin', as: :checkin_book
+  get '/users/histories/:id(.:format)' =>    'histories#index', as: :checkout_history
+  get '/books/histories/bookindex/:id(.:format)' =>    'histories#bookindex', as: :checkout_history_book
+  post '/books/:id/checkout(.:format)' => 'books#checkout'
+  #get '/histories/:id', to: 'histories#index'
+  #get '/histories/checkout/:id' to: 'histories#checkout'
+  #get '/checkout/:id', to: 'histories#index'
+  #get '/books/:id', to: 'histories#show'
+  #get '/histories/:id', to: 'histories#show'
 
+  #get 'checkout' => 'books#checkout' as :checkout
+  #get '/checkout' to: 'books#checkout'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
+  # root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,35 +1,37 @@
-<%= form_for @history  do |f| %>
+<%= form_for(@history) do |f| %>
+  <% if @history.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@history.errors.count, "error") %> prohibited this check from being saved:</h2>
 
-    <% if @history.errors.any? %>
-        <div id="error_explanation">
-          <h2>
-            <%= pluralize(@history.errors.count, 'error') %> prohibited
-            this article from being saved:
-          </h2>
-          <ul>
-            <% @history.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-            <% end %>
-          </ul>
-        </div>
-    <% end %>
+      <ul>
+      <% @history.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-    <p>
-      <%= f.label :book_id, 'Book ID' %><br>
-      <%= f.text_field :book_id %>
-    </p>
-
-    <p>
-      <%= f.label :user_id , 'User ID)' %><br>
-      <%= f.text_field :user_id %>
-    </p>
-
-    <p>
-      <%= f.label :comment %><br>
-      <%= f.text_area :comment %>
-    </p>
-
-    <p>
-      <%= f.submit %>
-    </p>
+  <div class="field">
+    <%= f.label :isbn %><br>
+    <%= f.text_field :isbn %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :checkout %><br>
+    <%= f.text_field :checkout %>
+  </div>
+  <div class="field">
+    <%= f.label :checkin %><br>
+    <%= f.text_field :checkin %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.text_field :status %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 <% end %>

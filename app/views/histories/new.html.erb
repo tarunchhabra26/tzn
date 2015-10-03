@@ -1,4 +1,7 @@
-<h1>Add a book</h1>
-<p>This page lets you add a new book history</p>
+<!%= Book.find(params[:isbn])%>
+
+<h1>New Check</h1>
+
 <%= render 'form' %>
-<%= link_to 'Back', histories_path %>
+
+<%= link_to 'Back', checks_path %>

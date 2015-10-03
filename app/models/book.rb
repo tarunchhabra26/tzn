@@ -1,15 +1,20 @@
 class Book < ActiveRecord::Base
-  validates :isbn, presence: true, numericality: :integer
-  validates :title, presence: true,
-            length: { minimum: 5 }
-  validates :authors, presence: true,
-            length: { minimum: 5 }
-  before_save :default_values
-  def default_values
-    self.status ||= 1
-    self.created_by =1
-    self.last_updated_by = 1
-    self.row_state = 1
-    self.return_date = Time.now
+	belongs_to :user
+	validates_presence_of :title, :isbn
+	validates :isbn, uniqueness: true
+
+  def self.search(a)
+    if a
+  	  #self.where("title like \'%int%\'")
+  	  self.where("title like ? or isbn like ? or description like ? or author like ? or status like ?", "%#{a}%", "%#{a}%", "%#{a}%", "%#{a}%", "%#{a}%")
+      #find(:all, :conditions => ['title LIKE ?', "%#{search}%"])
+    end
+  end
+  def self.email_search(a)
+    if a
+      #self.where("title like \'%int%\'")
+      self.where("email like ?", "%#{a}%")
+      #find(:all, :conditions => ['title LIKE ?', "%#{search}%"])
+    end
   end
 end

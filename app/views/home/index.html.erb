@@ -1,0 +1,73 @@
+<h1>Home#index</h1>
+<p>Find me in app/views/home/index.html.erb</p>
+
+
+<h1>Welcome 
+<%=session[:user]['email']%>
+<%=session[:password]%>
+<!%if session[:user]%>
+<!%=session[:user].name%> 
+<!%end%>
+to the Library</h1>
+<h2></h2>
+<ul>
+<li>Users Login and signup</li>
+<li>Only logged in users have access to the Library</li>
+<li>User can check out or return books</li>
+</ul>
+
+
+<p><%= link_to "Sign out", signout_path %></p>
+
+<!%= form_for :search, url: search_path do |f| %>
+  <!p>
+    <!%= f.text_field :search %>
+    <!%= submit_tag "search", :name = nil %>
+    <!%= f.submit "search", class: "btn btn-large btn-primary" %>
+  <!/p>
+<!% end %>
+
+<%= form_tag("/search", method: "get") do %>
+  <!%= label_tag(:query, "Search for:") %>
+  <%= text_field_tag(:search) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<% if !isadmin %>
+
+<h1>Books Checked Out</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Isbn</th>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Author</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @books.each do |book| %>
+      <tr>
+        <td><%= book.isbn %></td>
+        <td><%= book.title %></td>
+        <td><%= book.description %></td>
+        <td><%= book.author %></td>
+        <td><%= link_to 'Return', book %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<h3><%= link_to 'CheckOut History', checks_path %></h3>
+<%end%>
+<% @user = User.find_by_email(current_user[:email])%>
+<h3><%= link_to 'View/Edit Profile', edit_user_path(@user) %></h3>
+
+<% if isadmin %>
+<h3><%= link_to 'Manage Admins/Users', users_path %></h3>
+<h3><%= link_to 'Manage Books', books_path %></h3>
+<%end%>

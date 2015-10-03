@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Checks</h1>
+<% if @histories.size != 0 %>
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Isbn</th>
+      <th>Email</th>
+      <th>Checkout</th>
+      <th>Checkin</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @histories.each do |history| %>
+      <tr>
+        <td><%= history.id %></td>
+        <td><%= history.isbn %></td>
+        <td><%= history.email %></td>
+        <td><%= history.checkout %></td>
+        <td><%= history.checkin %></td>
+        <td><%= history.status %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% else %>
+    <h3> No checkout history available ! </h3>
+<% end %>
+
+<br>
+
+<!%= link_to 'New Check', new_check_path %>
+<%= link_to 'Back', books_path %>
+

@@ -1,9 +1,19 @@
 class History < ActiveRecord::Base
-  before_save :default_values
-  def default_values
-    self.history_status ||= 1
-    self.created_by = 1
-    self.updated_by = 1
-    self.row_state = 1
+
+  def self.email_search(a)
+    if a
+      #self.where("title like \'%int%\'")
+      self.where("email like ?", "#{a}")
+      #find(:all, :conditions => ['title LIKE ?', "%#{search}%"])
+    end
   end
+
+  def self.book_search(a)
+    if a
+      #self.where("title like \'%int%\'")
+      self.where("isbn like ?", "#{a}")
+      #find(:all, :conditions => ['title LIKE ?', "%#{search}%"])
+    end
+  end
+
 end
