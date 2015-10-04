@@ -1,3 +1,4 @@
+#This controller is not being used anymore
 class AdminsController < ApplicationController
   before_action :set_admin, only: [:show, :edit, :update, :destroy]
 

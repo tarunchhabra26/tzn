@@ -41,7 +41,7 @@
 <% if @book.status %>
 <%= link_to 'Checkout', checkout_book_path(@book) %> |
 <%else%>
-<%= link_to 'CheckIn', checkin_book_path(@book) %> |
+<%= link_to 'Return', checkin_book_path(@book) %> |
 <%end%>
 
 <%end%>

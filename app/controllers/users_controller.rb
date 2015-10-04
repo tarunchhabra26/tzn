@@ -64,7 +64,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
-    if (@user[:email] != "admin@lib.com"  && @user[:email] != current_user[:email])
+    if (@user[:email] != "libadmin@tzn.com"  && @user[:email] != current_user[:email])
         @user.destroy
         respond_to do |format|
           format.html { redirect_to users_url, notice: 'Admin was successfully deleted.' }

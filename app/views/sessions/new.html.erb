@@ -16,3 +16,6 @@
   </div>
 </div>
 <%end%>
+<% if flash[:danger] %>
+    <div class="danger" style="color: #cc0000"><%= flash[:danger] %></div>
+<% end %>

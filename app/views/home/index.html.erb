@@ -1,13 +1,7 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
-
-
-<h1>Welcome 
+<h1>Welcome
 <%=session[:user]['email']%>
 <%=session[:password]%>
-<!%if session[:user]%>
-<!%=session[:user].name%> 
-<!%end%>
+
 to the Library</h1>
 <h2></h2>
 <ul>
@@ -62,7 +56,7 @@ to the Library</h1>
 </table>
 
 
-<h3><%= link_to 'CheckOut History', checks_path %></h3>
+<h3><%= link_to 'CheckOut History', histories_path %></h3>
 <%end%>
 <% @user = User.find_by_email(current_user[:email])%>
 <h3><%= link_to 'View/Edit Profile', edit_user_path(@user) %></h3>

@@ -8,8 +8,6 @@ class CreateUsers < ActiveRecord::Migration
   t.timestamps null: false
     end
 
-    User.create :email => "admin@lib.com", :password => "admin", :name => "Preconfigured Admin", :is_admin => TRUE
-
 
   end
 end

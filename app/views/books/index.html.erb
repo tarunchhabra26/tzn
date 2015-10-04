@@ -45,7 +45,7 @@
         <td><%= link_to 'Show', book %></td>
         <td><% if isadmin %><%= link_to 'Edit', edit_book_path(book) %><% end %></td>
         <td><% if isadmin %><%= link_to 'Delete', book, method: :delete, data: { confirm: 'Are you sure?' } %><% end %></td>
-        <td><% if isadmin %><%= link_to 'History Out History', checkout_history_book_path(book.isbn) %><% end %></td>
+        <td><% if isadmin %><%= link_to 'Checkout History', checkout_history_book_path(book.isbn) %><% end %></td>
 
       </tr>
     <% end %>

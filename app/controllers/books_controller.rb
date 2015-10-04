@@ -11,14 +11,7 @@ class BooksController < ApplicationController
     end
   end
   def checkout
-     #@book[:email] = current_user[:email]
-     #@histories[:isbn]=@book[:isbn]
-     #if (:m_email && isadmin)
-     # @book[:email]=params[:m_email] 
-    #end
-    #if (:b_isbn && isadmin)
-     # @histories[:isbn]=params[:b_isbn]
-    #end
+
       @book = Book.find(params[:id])
       @book[:status] = false
       @book[:email] = current_user[:email]

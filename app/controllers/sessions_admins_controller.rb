@@ -1,3 +1,4 @@
+#This controller is not being used anymore
 class SessionsAdminsController < ApplicationController
   def new
   end

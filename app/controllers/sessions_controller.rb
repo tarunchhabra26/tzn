@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
      #session[:user] = user
      redirect_to '/'
     else
-      flash[:danger] = 'Invalid email/password combination' # Not quite right!
+      flash[:danger] = 'Invalid email/password, please try again' # Working fine
       render 'new'
     
     end
@@ -20,6 +20,7 @@ class SessionsController < ApplicationController
   def destroy
     session[:user] = nil   
     session[:email] = nil
+    flash[:danger] = nil
     redirect_to '/signin'
   end
 end
