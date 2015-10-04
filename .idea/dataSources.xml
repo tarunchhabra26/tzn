@@ -5,14 +5,14 @@
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:postgresql:db/development_tzn</jdbc-url>
+      <jdbc-url>jdbc:postgresql:tzn_development</jdbc-url>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails tzn: test" uuid="647a7a86-5751-41c0-ba78-d37c56fe0b78">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:postgresql:db/test_tzn</jdbc-url>
+      <jdbc-url>jdbc:postgresql:tzn_test</jdbc-url>
       <libraries />
     </data-source>
   </component>
