@@ -13,12 +13,24 @@ class BooksController < ApplicationController
   def checkout
 
       @book = Book.find(params[:id])
-      @book[:status] = false
-      @book[:email] = current_user[:email]
+      @user = User.find(params[:user])
+        @book[:status] = false
+      #TODO to make changes here for return by admin
+      if (!current_user.is_admin)
+        @book[:email]=@user.email
+      else
+        @book[:email]=@user.email;
+      end
+      #@book[:email] = current_user[:email]
       @book.save
       @histories=History.new
       @histories[:isbn]=@book[:isbn]
-      @histories[:email]=current_user[:email]
+      #TODO to make changes here for return by admin
+      if (!current_user.is_admin)
+      @histories[:email]=@user.email
+      else
+        @histories[:email]=@user.email;
+      end
       @histories[:status]='Checked Out'
       @histories[:checkout]=Time.now
       @histories.save
@@ -44,6 +56,13 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.json
   def show
+    @users = []
+    User.all.each do |user|
+      if !user.is_admin
+      @users << [user.email,user.id]
+      end
+    end
+
   end
 
   # GET /books/new

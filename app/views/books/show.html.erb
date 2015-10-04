@@ -37,12 +37,21 @@
 
 <% if (!isadmin) && ((current_user[:email] == @book.email) || (@book.email == nil))%>
 
-
 <% if @book.status %>
 <%= link_to 'Checkout', checkout_book_path(@book) %> |
 <%else%>
 <%= link_to 'Return', checkin_book_path(@book) %> |
 <%end%>
-
-<%end%>
+<% else %>
+    <% if @book.status %>
+    <%= form_for :users,url: checkout_book_path do |f| %>
+            <%= label_tag(:user, "Checked Out To This Library Member") %>
+            <%= select_tag(:user, options_for_select(@users, @users.length)) %>
+            <br>
+        <%= submit_tag('Checkout') %>
+    <% end %>
+    <%else%>
+        <%= link_to 'Return', checkin_book_path(@book) %>|
+    <%end%>
+    <%end%>
 <%= link_to 'Home', root_path %>

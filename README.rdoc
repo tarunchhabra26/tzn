@@ -1,7 +1,6 @@
 # LibSys by team tzn
 
-Code Repo:
-https://github.ncsu.edu/citizenkane/Lib 
+Code Repo:https://github.com/tarunchhabra26/tzn
 
 Preconfigured Admin Credentials:
 Email: admin@tzn.com
@@ -9,9 +8,8 @@ Password: password
 
 
 Points to note: 
-1. Yet to  "Admin can checkout a book for the user" functionality.
-2. Also, working on UI
-3. Yet to implement the bonus credit requirements.
+1. Working on UI
+2. Yet to implement the bonus credit requirements.
 
 
 
