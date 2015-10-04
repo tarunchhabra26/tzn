@@ -1,6 +1,7 @@
 # LibSys by team tzn
 
 Code Repo:https://github.com/tarunchhabra26/tzn
+App live on : https://thawing-hamlet-6916.herokuapp.com/
 
 Preconfigured Admin Credentials:
 Email: admin@tzn.com
