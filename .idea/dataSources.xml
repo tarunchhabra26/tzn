@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="3974030829">
+  <component name="DataSourceManagerImpl" format="xml" hash="799808426">
     <data-source source="LOCAL" name="Rails tzn: development" uuid="fdc767ec-b9da-43b8-bb0f-40b2f8e9b7fc">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
@@ -13,6 +13,13 @@
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
       <jdbc-url>jdbc:postgresql:tzn_test</jdbc-url>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails tzn: production" uuid="e6c1a972-6a38-43e7-b4d3-85e3091f66c8">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:tzn_production</jdbc-url>
       <libraries />
     </data-source>
   </component>

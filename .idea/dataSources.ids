@@ -6,4 +6,7 @@
   <data-source name="Rails tzn: test" uuid="647a7a86-5751-41c0-ba78-d37c56fe0b78">
     <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
+  <data-source name="Rails tzn: production" uuid="e6c1a972-6a38-43e7-b4d3-85e3091f66c8">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
 </component>
