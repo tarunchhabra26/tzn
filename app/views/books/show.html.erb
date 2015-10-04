@@ -43,7 +43,7 @@
 <%= link_to 'Return', checkin_book_path(@book) %> |
 <%end%>
 <% else %>
-    <% if @book.status && :users.length > 0 %>
+    <% if @book.status && :users.length != 0 %>
     <%= form_for :users,url: checkout_book_path do |f| %>
             <%= label_tag(:user, "Checked Out To This Library Member") %>
             <%= select_tag(:user, options_for_select(@users, @users.length)) %>
