@@ -14,18 +14,17 @@ class BooksController < ApplicationController
 
       @book = Book.find(params[:id])
       @user = User.find(params[:user])
-        @book[:status] = false
-      #TODO to make changes here for return by admin
+      @book[:status] = false
+      #For return by admin
       if (!current_user.is_admin)
         @book[:email]=@user.email
       else
         @book[:email]=@user.email;
       end
-      #@book[:email] = current_user[:email]
       @book.save
       @histories=History.new
       @histories[:isbn]=@book[:isbn]
-      #TODO to make changes here for return by admin
+      #For return by admin
       if (!current_user.is_admin)
       @histories[:email]=@user.email
       else
