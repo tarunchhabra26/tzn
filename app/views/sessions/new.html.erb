@@ -3,17 +3,23 @@
 <%else%>
 <% provide(:title, "Sign in") %>
 
-
-
+    <% if flash[:danger] %>
+        <div class="danger" style="color: #cc0000"><%= flash[:danger] %></div>
+    <% end %>
 <div class="row">
-  <div class="col-md-6 col-md-offset-5">
+<div class="col-md-6 col-md-offset-1">
+  <h4>Welcome to the Library</h4>
+</div>
+</div>
+<div class="row">
+  <div class="col-md-6 col-md-offset-4">
     <h1 align="left">Sign in</h1>
     <br><br>
     <%= form_for(:session, url: sessions_path) do |f| %>
-      <%= f.label :email %><br>
-      <%= f.text_field :email %><br>
-      <%= f.label :password %><br>
-      <%= f.password_field :password %><br><br>
+      <%= f.label :email  %>
+      <%= f.text_field :email, :class => 'textbox1 '%><br>
+      <%= f.label :password %>
+      <%= f.password_field :password, :class => 'passwordbox1 '%><br><br>
       <%= f.submit "Sign in", class: "btn btn-large" %>
     <% end %>
     <p>New user? <%= link_to "Sign up now!", signup_path %></p>
@@ -21,6 +27,3 @@
 </div>
 
 <%end%>
-<% if flash[:danger] %>
-    <div class="danger" style="color: #cc0000"><%= flash[:danger] %></div>
-<% end %>
