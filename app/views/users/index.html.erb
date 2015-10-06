@@ -1,3 +1,4 @@
+<div align="center">
 <p id="notice"><%= notice %></p>
 
 <h1>List of Admins</h1>
@@ -55,3 +56,8 @@
     <% end %>
   </tbody>
 </table>
+  <% if isadmin%>
+      <%= link_to 'Create New User', new_user_path %> |
+      <%= link_to 'Back', '/' %>
+  <%end%>
+    </div>
