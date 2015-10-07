@@ -68,11 +68,11 @@
     <%= link_to 'Edit', edit_book_url %></button>
 </div>
 <% if !@book.status %>
-+    <%if current_user[:email] != @book.email && !isadmin%>
-        <button type="button" class="btn">
+    <%if current_user[:email] != @book.email && !isadmin%>
+        <button type="button" class="btn" align = "center">
         <%= link_to 'Send me notification when returned', send_notification_path(@book)%>
         </button>
        <!%else%>
         <!%= link_to 'Return', checkin_book_path(@book) %> |
        <% end %>
-+<% end %>
+<% end %>
