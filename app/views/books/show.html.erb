@@ -54,8 +54,11 @@
         <%= submit_tag('Checkout')%><br>
     <% end %>
     <%else%>
+          <% if current_user[:email] == @book.email%>
           <button type="button" class="btn">
-        <%= link_to 'Return', checkin_book_path(@book) %></button>
+        <%= link_to 'Return', checkin_book_path(@book) %>
+                </button>
+              <% end %>
     <%end%>
   <%end%>
   <br><br><br>
