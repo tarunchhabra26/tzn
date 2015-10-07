@@ -1,18 +1,33 @@
 # LibSys by team tzn
 
 Code Repo:https://github.com/tarunchhabra26/tzn
+
 App live on : https://thawing-hamlet-6916.herokuapp.com/
 
 Preconfigured Admin Credentials:
 Email: admin@tzn.com
 Password: password
 
+Points to note:
 
-Points to note: 
-1. Working on UI
-2. Yet to implement the bonus credit requirements - Added email feature, recommendation pending
-3. Added new feature wherein the admin can checkout book for himself as well.
+Admin Functionality:
+1. Admin can view list of books, list of users.
+2. Admin can edit book details, user details (except that of preconfigured admin).
+3. Admin can create admins, library members and books.
+
+User Functionality:
+1. Users can search for books using isbn, name, author, description, status(available/unavailable) of books.
+2. Users can view list of books.
+3. Users can checkout books.
 
 
+Extra Functionality:
+1. users can recommend a book which the admin can approve or reject.
+2. email notification can be requested for a checked out book so that the user is notified by email when the book is available.
 
-Note: One row each for checkin and checkout
+
+Specifications:
+1. Ruby version : 2.x
+2. Database : postgresql
+
+

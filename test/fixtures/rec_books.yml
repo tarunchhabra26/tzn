@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  Name: MyString
-  Author: MyString
-  Description: MyString
+  Name: reccomend1
+  Author: Recommender
+  Description: Reccomendation
 
 two:
-  Name: MyString
-  Author: MyString
-  Description: MyString
+  Name: recommend2
+  Author: Recco
+  Description: Recommendation
