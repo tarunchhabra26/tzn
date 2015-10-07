@@ -28,11 +28,10 @@
     <%= f.label :author %><br>
     <%= f.text_field :author, :class=>"textbox1"%>
   </div>
-    
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-      <%= link_to 'Back', books_path %>
+
+      <%= f.submit "Create", class: "btn" %>
+
+      <button type="button" class="btn"> <%= link_to 'Back', books_path %></button>
       </div>
 
 <% end %>

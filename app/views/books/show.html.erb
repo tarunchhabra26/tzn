@@ -39,9 +39,10 @@
 <% if (!isadmin) && ((current_user[:email] == @book.email) || (@book.email == nil))%>
 
 <% if @book.status %>
-<%= link_to 'Checkout', checkout_book_path(@book) %> |
-<%else%>
-<%= link_to 'Return', checkin_book_path(@book) %> |
+          <button type="button" class="btn"><%= link_to 'Checkout', checkout_book_path(@book) %></button>
+      <%else%>
+          <button type="button" class="btn"><%= link_to 'Return', checkin_book_path(@book) %></button>
+
 <%end%>
 <% else %>
     <% if @book.status && :users.length != 0 %>
@@ -52,8 +53,10 @@
         <%= submit_tag('Checkout') %>
     <% end %>
     <%else%>
-        <%= link_to 'Return', checkin_book_path(@book) %>|
+          <button type="button" class="btn"><%= link_to 'Return', checkin_book_path(@book) %></button>
+
     <%end%>
     <%end%>
-<%= link_to 'Home', root_path %>
+  <button type="button" class="btn"><%= link_to 'Home', root_path %></button>
+
 </div>
