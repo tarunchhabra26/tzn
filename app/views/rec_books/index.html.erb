@@ -1,0 +1,28 @@
+<div class="container">
+<p id="notice"><%= notice %></p>
+
+<h3>Listing Reccomended Books</h3>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Author</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rec_books.each do |rec_book| %>
+      <tr>
+        <td><%= rec_book.Name %></td>
+        <td><%= rec_book.Author %></td>
+        <td><%= rec_book.Description %></td>
+        <td><%= link_to 'Show', rec_book, :style=>"color:#0000FF"  %></td>
+        <td><%= link_to 'Destroy', rec_book, method: :delete, data: { confirm: 'Are you sure?' }, :style=>"color:#0000FF"  %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

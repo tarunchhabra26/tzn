@@ -1,0 +1,32 @@
+<div class="container" align="center">
+<%= form_for(@rec_book) do |f| %>
+  <% if @rec_book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@rec_book.errors.count, "error") %> prohibited this rec_book from being saved:</h2>
+
+      <ul>
+      <% @rec_book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Name %><br>
+    <%= f.text_field :Name, :class=>"textbox1"%>
+  </div>
+  <div class="field">
+    <%= f.label :Author %><br>
+    <%= f.text_field :Author, :class=>"textbox1" %>
+  </div>
+  <div class="field">
+    <%= f.label :Description %><br>
+    <%= f.text_field :Description, :class=>"textbox1" %>
+  </div>
+  <div class="btn">
+    <%= f.submit "Create Recommendation"%>
+  </div>
+<% end %>
+  <button type="button" class="btn btn-default"><%= link_to "Back", home_index_path%></button>
+</div>

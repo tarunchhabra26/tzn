@@ -1,0 +1,25 @@
+<div class="container" align="center">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @rec_book.Name %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @rec_book.Author %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @rec_book.Description %>
+</p>
+<%if !isadmin%>
+<button type="button" class="btn btn-default"><%= link_to 'Edit', edit_rec_book_path(@rec_book) %></button>
+    <button type="button" class="btn btn-default"><%= link_to 'Back', home_index_path %></button>
+<%end%>
+<%if isadmin%>
+    <button type="button" class="btn btn-default"><%= link_to 'Back', rec_books_path %></button>
+<%end%>
+</div>
