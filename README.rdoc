@@ -7,13 +7,22 @@ Preconfigured Admin Credentials:
 Email: admin@tzn.com
 Password: password
 
-
 Points to note:
+Admin Functionality:
 1. Admin can view list of books, list of users.
 2. Admin can edit book details, user details (except that of preconfigured admin).
 3. Admin can create admins and library members
-4. Users can view list of books.
-5. Users can checkout books.
+
+User Functionality:
+1. Users can search for books using isbn, name, author, description, status(available/unavailable) of books.
+2. Users can view list of books.
+3. Users can checkout books.
+
+
+Extra Functionality:
+1. users can recommend a book which the admin can approve or reject.
+2. email notification can be requested when a book is returned.
+
 Specifications:
 1. Ruby version : 2.x
 2. Database : postgresql
