@@ -16,25 +16,27 @@ class RecBooksController < ApplicationController
   def new
     @rec_book = RecBook.new
   end
-  def createBook
-    @rec_book = RecBook.new(rec_book_params)
+  def create_rec_book
+    @rec_book = RecBook.find(params[:id])
     @book = Book.new
     @book[:title] = @rec_book.Name
     @book[:description] = @rec_book.Description
     @book[:author] = @rec_book.Author
+    @book[:status] = true
+    @book[:isbn] = 0;
     respond_to do |format|
       @book[:status] = true
       if @book.save
-        format.html { redirect_to @book, notice: 'Recommendation was successfully created.' }
+        @rec_book.destroy
+        format.html { redirect_to @book, notice: 'Book was successfully created.' }
         format.json { render :show, status: :created, location: @book }
       else
         format.html { render :new }
         format.json { render json: @book.errors, status: :unprocessable_entity }
       end
     end
-    redirect show
   end
-  helper_method :createBook
+  helper_method :create_rec_book
   # GET /rec_books/1/edit
   def edit
   end
@@ -45,11 +47,11 @@ class RecBooksController < ApplicationController
     @rec_book = RecBook.new(rec_book_params)
     respond_to do |format|
       if @rec_book.save
-        format.html { redirect_to @book, notice: 'Recommendation was successfully created.' }
+        format.html { redirect_to @rec_book, notice: 'Recommendation was successfully created.' }
         format.json { render :show, status: :created, location: @rec_book }
       else
         format.html { render :new }
-        format.json { render json: @book.errors, status: :unprocessable_entity }
+        format.json { render json: @rec_book.errors, status: :unprocessable_entity }
       end
     end
   end
