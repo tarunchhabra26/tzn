@@ -28,9 +28,7 @@
     <!%= f.text_field :is_admin %>
   <!/div>
   <!%end%>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-  <%=link_to "back", new_session_url%>
+  <%= f.submit "submit", class: "btn" %>
+  <button type="button" class="btn"> <%= link_to 'Back', home_index_path %></button>
 </div>
 <% end %>

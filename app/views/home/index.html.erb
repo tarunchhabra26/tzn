@@ -1,26 +1,33 @@
-<div class ="container" align="center">
 <% @user = User.find_by_email(current_user[:email])%>
-<table align="right">
-  <tr style="cellpadding:10px">
-    <td><h4><%= link_to "Sign out", signout_path%></h4></td>
-    <td><h4><%= link_to 'View/Edit Profile ', edit_user_path(@user) %></h4></td>
-    <td><h4><%= link_to 'CheckOut History', histories_path %></h4></td>
-    <% if isadmin %>
-    <td><h4><%= link_to 'Manage Admins/Users ', users_path %></h4></td>
-    <td><h4><%= link_to 'Manage Books', books_path %></h4></td>
-    <%end%>
-  </tr>
-  </table>
-<br><br><br><br>
+
+<div class="btn-group btn-group-justified" role="group" aria-label="...">
+
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default"><%= link_to 'Home ', home_index_path %></button>
+  </div>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default"><%= link_to 'View/Edit Profile ', edit_user_path(@user) %></button>
+  </div>
+  <%if isadmin%>
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-default"><%= link_to 'Manage Admins/Users ', users_path %></button>
+      </div>
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-default"><%= link_to 'Manage Books ', books_path %></button>
+      </div>
+  <%end%>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default"><%= link_to "Sign out", signout_path%></button>
+  </div>
+</div>
+  <div class ="container" align="center">
+
 <h3 align="left">Welcome
 <%=session[:user]['email']%>
 <%=session[:password]%>
 </h3>
 <h2></h2>
 
-<p>Users Login and signup</p>
-<p>Only logged in users have access to the Library</p>
-<p>User can check out or return books</p>
 <p>Enter the book name/ isbn/ author to serach the book</p>
   <!%= form_for :search, url: search_path do |f| %>
   <!p>
@@ -32,15 +39,15 @@
 
   <form action="/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
     <!%= label_tag(:query, "Search for:") %>
-    <input type="text" name="search" id="search" class="textbox1" />
-    <input type="submit" name="commit" value="Search" />
+    <input type="text" name="search" id="search" class="textbox1"/>
+    <input type="submit" class="btn" name="commit" value="Search" />
   </form>
 
 <% if !isadmin %>
 
-<h1>Books Checked Out</h1>
+<h3>Books Checked Out</h3>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Isbn</th>

@@ -1,5 +1,7 @@
-<h1 id="notice"><%= notice %></h1>
-
+<div class="container" align="center">
+  <br><br>
+<h3 id="notice"><%= notice %></h3>
+<br><br>
 <p>
   <strong>Email:</strong>
   <%= @user.email %>
@@ -22,7 +24,9 @@
 
 <!%= link_to 'Edit', edit_user_path(@user) %>
 <% if isadmin%>
-<%= link_to 'Back', users_path %>
+      <button type="button" class="btn"> <%= link_to 'Back', users_path %></button>
 <% else %>
-<%= link_to 'Home', home_index_path %>
+      <button type="button" class="btn"> <%= link_to 'sign in', home_index_path %></button>
+
 <%end%>
+    </div>

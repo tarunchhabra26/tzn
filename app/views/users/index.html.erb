@@ -3,7 +3,7 @@
 
 <h1>List of Admins</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Email</th>
@@ -17,9 +17,9 @@
       <tr>
         <td><%= user.email %></td>
         <td><%= user.name %></td>
-        <td><%= link_to 'Show', user %></td>
-        <!td><!%= link_to 'Edit', edit_user_path(user) %><!/td>
-        <td><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', user, :style => "color:#0000FF"  %></td>
+        <!td><!%= link_to 'Edit', edit_user_path(user)%><!/td>
+        <td><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' }, :style => "color:#0000FF" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -27,14 +27,13 @@
 
 <br>
 <% if isadmin%>
-<%= link_to 'Create New Admin', new_user_path %> | 
-<%= link_to 'Back', '/' %>
+      <button type="button" class="btn"> <%= link_to 'Create New Admin', new_user_path %></button>
 <%end%>
 
 
 <h1>List of Members</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Email</th>
@@ -48,16 +47,17 @@
       <tr>
         <td><%= user.email %></td>
         <td><%= user.name %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'History Out History', checkout_history_path(user.email) %></td>
+        <td><%= link_to 'Show', user, :style => "color:#0000FF" %></td>
+        <td><%= link_to 'History Out History', checkout_history_path(user.email), :style => "color:#0000FF"  %></td>
         <!td><!%= link_to 'Edit', edit_user_path(user) %><!/td>
-        <td><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' }, :style => "color:#0000FF"  %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
   <% if isadmin%>
-      <%= link_to 'Create New User', new_user_path %> |
-      <%= link_to 'Back', '/' %>
+      <button type="button" class="btn"><%= link_to 'Create New User', new_user_path %> |</button>
   <%end%>
+  <br><br><br>
+  <button type="button" class="btn"><%= link_to 'Back', '/' %></button>
     </div>

@@ -14,23 +14,24 @@
 
   <div class="field">
     <%= f.label :isbn %><br>
-    <%= f.text_field :isbn, class=>'textbox1'%>
+    <%= f.text_field :isbn, :class=>"textbox1"%>
   </div>
   <div class="field">
     <%= f.label :title %><br>
-    <%= f.text_field :title, class=>'textbox1' %>
+    <%= f.text_field :title, :class=>"textbox1"%>
   </div>
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_area :description, class=>'textbox1' %>
+    <%= f.text_area :description, :class=>"textbox1"%>
   </div>
   <div class="field">
     <%= f.label :author %><br>
-    <%= f.text_field :author, class=>'textbox1' %>
+    <%= f.text_field :author, :class=>"textbox1"%>
   </div>
-    
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+      <%= f.submit "Create", class: "btn" %>
+
+      <button type="button" class="btn"> <%= link_to 'Back', books_path %></button>
       </div>
+
 <% end %>
