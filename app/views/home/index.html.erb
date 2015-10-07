@@ -8,6 +8,11 @@
   <div class="btn-group" role="group">
     <button type="button" class="btn btn-default"><%= link_to 'View/Edit Profile ', edit_user_path(@user) %></button>
   </div>
+  <% if !isadmin%>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default"><%= link_to 'Recommend a book ', recommend_new_path(@user) %></button>
+  </div>
+  <% end %>
   <%if isadmin%>
       <div class="btn-group" role="group">
         <button type="button" class="btn btn-default"><%= link_to 'Manage Admins/Users ', users_path %></button>

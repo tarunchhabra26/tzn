@@ -49,7 +49,7 @@ class BooksController < ApplicationController
       @book[:status] = true
       @book[:email] = nil
       @book.save
-      #TODO send mail to the request list
+      #send mail to the request list
       @mail_address = @book[:send_mail_notification].split(',');
       #send_email(@book)
       @mail_address.each do |email|
