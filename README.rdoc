@@ -11,6 +11,7 @@ Password: password
 Points to note: 
 1. Working on UI
 2. Yet to implement the bonus credit requirements.
+3. Added new feature wherein the admin can checkout book for himself as well.
 
 
 

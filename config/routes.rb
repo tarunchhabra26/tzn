@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get '/users/histories/:id(.:format)' =>    'histories#index', as: :checkout_history
   get '/books/histories/bookindex/:id(.:format)' =>    'histories#bookindex', as: :checkout_history_book
   post '/books/:id/checkout(.:format)' => 'books#checkout'
+  get '/books/:id/send_notification(.:format)' => 'books#send_notification', as: :send_notification
   #get '/histories/:id', to: 'histories#index'
   #get '/histories/checkout/:id' to: 'histories#checkout'
   #get '/checkout/:id', to: 'histories#index'

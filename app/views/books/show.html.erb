@@ -1,4 +1,3 @@
-<div class="container" align="center">
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -39,10 +38,9 @@
 <% if (!isadmin) && ((current_user[:email] == @book.email) || (@book.email == nil))%>
 
 <% if @book.status %>
-          <button type="button" class="btn"><%= link_to 'Checkout', checkout_book_path(@book) %></button>
-      <%else%>
-          <button type="button" class="btn"><%= link_to 'Return', checkin_book_path(@book) %></button>
-
+<%= link_to 'Checkout', checkout_book_path(@book) %> |
+<%else%>
+<%= link_to 'Return', checkin_book_path(@book) %> |
 <%end%>
 <% else %>
     <% if @book.status && :users.length != 0 %>
@@ -53,10 +51,7 @@
         <%= submit_tag('Checkout') %>
     <% end %>
     <%else%>
-          <button type="button" class="btn"><%= link_to 'Return', checkin_book_path(@book) %></button>
-
+        <%= link_to 'Return', checkin_book_path(@book) %>|
     <%end%>
     <%end%>
-  <button type="button" class="btn"><%= link_to 'Home', root_path %></button>
-
-</div>
+<%= link_to 'Home', root_path %>
