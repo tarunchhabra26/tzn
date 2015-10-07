@@ -20,9 +20,9 @@
       <%= f.text_field :email, :class => 'textbox1 '%><br>
       <%= f.label :password %>
       <%= f.password_field :password, :class => 'passwordbox1 '%><br><br>
-      <%= f.submit "Sign in", class: "btn btn-large" %>
+      <%= f.submit "Sign in", class: "btn" %>
     <% end %>
-    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+    <p>New user?<b> <%= link_to "Sign up now!", signup_path, :style=>"color:#0000FF"%></b></p>
   </div>
 </div>
 
