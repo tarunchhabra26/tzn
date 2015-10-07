@@ -8,11 +8,14 @@ Email: admin@tzn.com
 Password: password
 
 
-Points to note: 
-1. Working on UI
-2. Yet to implement the bonus credit requirements - Added email feature, recommendation pending
-3. Added new feature wherein the admin can checkout book for himself as well.
-
-
+Points to note:
+1. Admin can view list of books, list of users.
+2. Admin can edit book details, user details (except that of preconfigured admin).
+3. Admin can create admins and library members
+4. Users can view list of books.
+5. Users can checkout books.
+Specifications:
+1. Ruby version : 2.x
+2. Database : postgresql
 
 Note: One row each for checkin and checkout
