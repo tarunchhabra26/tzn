@@ -7,7 +7,5 @@ class CreateUsers < ActiveRecord::Migration
 	t.column :is_admin, :boolean, :null => false
   t.timestamps null: false
     end
-
-
   end
 end

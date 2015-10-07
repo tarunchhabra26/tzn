@@ -1,19 +1,28 @@
-<h1>Welcome
+<div class ="container" align="center">
+<% @user = User.find_by_email(current_user[:email])%>
+<table align="right">
+  <tr style="cellpadding:10px">
+    <td><h4><%= link_to "Sign out", signout_path%></h4></td>
+    <td><h4><%= link_to 'View/Edit Profile ', edit_user_path(@user) %></h4></td>
+    <td><h4><%= link_to 'CheckOut History', histories_path %></h4></td>
+    <% if isadmin %>
+    <td><h4><%= link_to 'Manage Admins/Users ', users_path %></h4></td>
+    <td><h4><%= link_to 'Manage Books', books_path %></h4></td>
+    <%end%>
+  </tr>
+  </table>
+<br><br><br><br>
+<h3 align="left">Welcome
 <%=session[:user]['email']%>
 <%=session[:password]%>
-
-to the Library</h1>
+</h3>
 <h2></h2>
-<ul>
-<li>Users Login and signup</li>
-<li>Only logged in users have access to the Library</li>
-<li>User can check out or return books</li>
-</ul>
 
-
-<p><%= link_to "Sign out", signout_path %></p>
-
-<!%= form_for :search, url: search_path do |f| %>
+<p>Users Login and signup</p>
+<p>Only logged in users have access to the Library</p>
+<p>User can check out or return books</p>
+<p>Enter the book name/ isbn/ author to serach the book</p>
+  <!%= form_for :search, url: search_path do |f| %>
   <!p>
     <!%= f.text_field :search %>
     <!%= submit_tag "search", :name = nil %>
@@ -21,11 +30,11 @@ to the Library</h1>
   <!/p>
 <!% end %>
 
-<%= form_tag("/search", method: "get") do %>
-  <!%= label_tag(:query, "Search for:") %>
-  <%= text_field_tag(:search) %>
-  <%= submit_tag("Search") %>
-<% end %>
+  <form action="/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+    <!%= label_tag(:query, "Search for:") %>
+    <input type="text" name="search" id="search" class="textbox1" />
+    <input type="submit" name="commit" value="Search" />
+  </form>
 
 <% if !isadmin %>
 
@@ -54,14 +63,5 @@ to the Library</h1>
     <% end %>
   </tbody>
 </table>
-
-
-<h3><%= link_to 'CheckOut History', histories_path %></h3>
-<%end%>
-<% @user = User.find_by_email(current_user[:email])%>
-<h3><%= link_to 'View/Edit Profile', edit_user_path(@user) %></h3>
-
-<% if isadmin %>
-<h3><%= link_to 'Manage Admins/Users', users_path %></h3>
-<h3><%= link_to 'Manage Books', books_path %></h3>
-<%end%>
+  <%end%>
+    </div>
