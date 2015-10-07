@@ -13,20 +13,21 @@ class BooksController < ApplicationController
   def checkout
 
       @book = Book.find(params[:id])
-      @user = User.find(params[:user])
+
       @book[:status] = false
       #For return by admin
       if (!current_user.is_admin)
-        @book[:email]=@user.email
+        @book[:email] = current_user.email
       else
-        @book[:email]=@user.email;
+        @user = User.find(params[:user])
+        @book[:email] = @user.email;
       end
       @book.save
       @histories=History.new
       @histories[:isbn]=@book[:isbn]
       #For return by admin
       if (!current_user.is_admin)
-      @histories[:email]=@user.email
+      @histories[:email] = current_user.email
       else
         @histories[:email]=@user.email;
       end
@@ -49,9 +50,28 @@ class BooksController < ApplicationController
       @book[:status] = true
       @book[:email] = nil
       @book.save
+      #TODO send mail to the request list
       redirect_to '/'
       
   end
+  #This method will take the current email id for the given book id and then send him/her a mail once the book is returned
+  def send_notification
+    @book = Book.find(params[:id])
+    if @book[:send_mail_notification] != nil
+      if  @book[:send_mail_notification].to_s.downcase == 'null' && @book[:send_mail_notification].to_s.downcase == 'nil'
+        @book[:send_mail_notification] = current_user.email
+      end
+      if !(@book[:send_mail_notification].split(',').include? current_user.email)
+      #Check if the column already has a value, if yes then append using ','
+          @book[:send_mail_notification] += ',' + current_user.email
+      end
+    else
+        @book[:send_mail_notification] = current_user.email
+    end
+    @book.save
+    redirect_to '/'
+  end
+
   # GET /books/1
   # GET /books/1.json
   def show
