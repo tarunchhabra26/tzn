@@ -61,6 +61,7 @@ class BooksController < ApplicationController
       @users << [user.email,user.id]
       end
     end
+    @users << [current_user.email,current_user.id]
 
   end
 
