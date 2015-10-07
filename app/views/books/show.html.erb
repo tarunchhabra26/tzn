@@ -26,22 +26,20 @@
 </p>
 
 <% @book = Book.find(params[:id])%>
-
-<!%= form_for(@user) do |f| %>
-  <!%= f.label :email %><br>
-  <!%= f.text_field :email %>
-  <!%= f.hidden_field :isbn, :value = @book.isbn %>
-  <!%= link_to 'Checkout', checkout_book_path(@book) %> 
-  <!%= f.submit %>
-<!% end %>
+<% if !@book.status %>
+    <%if current_user[:email] != @book.email && !isadmin%>
+        <%= link_to 'Send me notification when returned', send_notification_path(@book)%>|
+    <%else%>
+        <%= link_to 'Return', checkin_book_path(@book) %> |
+    <% end %>
+<% end %>
 
 <% if (!isadmin) && ((current_user[:email] == @book.email) || (@book.email == nil))%>
-
 <% if @book.status %>
 <%= link_to 'Checkout', checkout_book_path(@book) %> |
-<%else%>
-<%= link_to 'Return', checkin_book_path(@book) %> |
 <%end%>
+
+
 <% else %>
     <% if @book.status && :users.length != 0 %>
     <%= form_for :users,url: checkout_book_path do |f| %>
@@ -51,7 +49,9 @@
         <%= submit_tag('Checkout') %>
     <% end %>
     <%else%>
+        <%if (isadmin)%>
         <%= link_to 'Return', checkin_book_path(@book) %>|
+        <%end%>
     <%end%>
-    <%end%>
+<%end%>
 <%= link_to 'Home', root_path %>

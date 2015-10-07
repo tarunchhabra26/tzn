@@ -11,15 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150925042556) do
+ActiveRecord::Schema.define(version: 20151007031418) do
 
   create_table "books", force: :cascade do |t|
-    t.string  "isbn",        limit: 100, null: false
-    t.string  "title",       limit: 100, null: false
-    t.string  "author",      limit: 100
-    t.text    "description"
-    t.boolean "status",                  null: false
-    t.string  "email"
+    t.string  "isbn",                   limit: 100,   null: false
+    t.string  "title",                  limit: 100,   null: false
+    t.string  "author",                 limit: 100
+    t.text    "description",            limit: 65535
+    t.boolean "status",                               null: false
+    t.string  "email",                  limit: 255
+    t.string  "send_mail_notification", limit: 255
+    t.boolean "is_recommendation"
   end
 
   create_table "histories", force: :cascade do |t|

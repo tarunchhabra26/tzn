@@ -40,10 +40,9 @@ class BooksController < ApplicationController
   end
   def checkin
       @book = Book.find(params[:id])
-
       @histories=History.new
-      @histories[:isbn]=@book[:isbn]
-      @histories[:email]=@book[:email]
+      @histories[:isbn]= @book[:isbn]
+      @histories[:email]= @book[:email]
       @histories[:status]='Checked In'
       @histories[:checkin]=Time.now
       @histories.save
@@ -51,8 +50,21 @@ class BooksController < ApplicationController
       @book[:email] = nil
       @book.save
       #TODO send mail to the request list
+      @mail_address = @book[:send_mail_notification].split(',');
+      #send_email(@book)
+      @mail_address.each do |email|
+        begin
+          UserNotifier.notification_mail(email,@book.title).deliver
+        rescue
+        end
+      end
+      @book[:send_mail_notification] = nil
+      @book.save
       redirect_to '/'
-      
+  end
+
+  def send_email(book)
+      UserNotifier.notification_mail(mail_address,title).deliver_now
   end
   #This method will take the current email id for the given book id and then send him/her a mail once the book is returned
   def send_notification
