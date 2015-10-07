@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'recommend/new'
-
+  resources :rec_books
   resources :histories
   get 'home/index'
 

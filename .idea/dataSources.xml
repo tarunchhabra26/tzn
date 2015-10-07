@@ -12,7 +12,7 @@
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:postgresql:tzn_test</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\Users\Zeal\RubymineProjects\tzn\tzn_test</jdbc-url>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails tzn: production" uuid="e6c1a972-6a38-43e7-b4d3-85e3091f66c8">
