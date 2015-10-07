@@ -50,15 +50,17 @@ class BooksController < ApplicationController
       @book[:email] = nil
       @book.save
       #send mail to the request list
-      @mail_address = @book[:send_mail_notification].split(',');
-      #send_email(@book)
-      @mail_address.each do |email|
-        begin
-          UserNotifier.notification_mail(email,@book.title).deliver
-        rescue
-        end
+      if @book[:send_mail_notification] != nil
+        @mail_address = @book[:send_mail_notification].split(',');
+        #send_email(@book)
+          @mail_address.each do |email|
+            begin
+            UserNotifier.notification_mail(email,@book.title).deliver
+            rescue
+          end
+          end
+            @book[:send_mail_notification] = nil
       end
-      @book[:send_mail_notification] = nil
       @book.save
       redirect_to '/'
   end
