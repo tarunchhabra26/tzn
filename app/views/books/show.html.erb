@@ -1,3 +1,4 @@
+<div class="container" align="center">
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -38,9 +39,11 @@
 <% if (!isadmin) && ((current_user[:email] == @book.email) || (@book.email == nil))%>
 
 <% if @book.status %>
-<%= link_to 'Checkout', checkout_book_path(@book) %> |
+          <button type="button" class="btn">
+<%= link_to 'Checkout', checkout_book_path(@book) %> </button>
 <%else%>
-<%= link_to 'Return', checkin_book_path(@book) %> |
+          <button type="button" class="btn">
+<%= link_to 'Return', checkin_book_path(@book) %></button>
 <%end%>
 <% else %>
     <% if @book.status && :users.length != 0 %>
@@ -48,10 +51,16 @@
             <%= label_tag(:user, "Checked Out To This Library Member") %>
             <%= select_tag(:user, options_for_select(@users, @users.length)) %>
             <br>
-        <%= submit_tag('Checkout') %>
+        <%= submit_tag('Checkout')%><br>
     <% end %>
     <%else%>
-        <%= link_to 'Return', checkin_book_path(@book) %>|
+          <button type="button" class="btn">
+        <%= link_to 'Return', checkin_book_path(@book) %></button>
     <%end%>
     <%end%>
-<%= link_to 'Home', root_path %>
+  <br><br><br>
+  <button type="button" class="btn">
+<%= link_to 'Home', root_path %></button>
+  <button type="button" class="btn">
+    <%= link_to 'Edit', edit_book_url %></button>
+</div>

@@ -14,32 +14,32 @@
 ActiveRecord::Schema.define(version: 20151007194420) do
 
   create_table "books", force: :cascade do |t|
-    t.string  "isbn",                   limit: 100, null: false
-    t.string  "title",                  limit: 100, null: false
+    t.string  "isbn",                   limit: 100,   null: false
+    t.string  "title",                  limit: 100,   null: false
     t.string  "author",                 limit: 100
-    t.text    "description"
-    t.boolean "status",                             null: false
-    t.string  "email"
-    t.string  "send_mail_notification"
+    t.text    "description",            limit: 65535
+    t.boolean "status",                               null: false
+    t.string  "email",                  limit: 255
+    t.string  "send_mail_notification", limit: 255
     t.boolean "is_recommendation"
   end
 
   create_table "histories", force: :cascade do |t|
-    t.string   "isbn",       limit: 100, null: false
-    t.string   "email",      limit: 100, null: false
+    t.string   "isbn",       limit: 100,              null: false
+    t.string   "email",      limit: 100, default: "", null: false
     t.datetime "checkout"
     t.datetime "checkin"
-    t.string   "status",     limit: 100, null: false
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "status",     limit: 100,              null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
   end
 
   create_table "rec_books", force: :cascade do |t|
-    t.string   "Name"
-    t.string   "Author"
-    t.string   "Description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.string   "Name",        limit: 255
+    t.string   "Author",      limit: 255
+    t.string   "Description", limit: 255
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "users", force: :cascade do |t|

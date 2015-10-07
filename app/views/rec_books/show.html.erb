@@ -20,6 +20,7 @@
     <button type="button" class="btn btn-default"><%= link_to 'Back', home_index_path %></button>
 <%end%>
 <%if isadmin%>
-    <button type="button" class="btn btn-default"><%= link_to 'Back', rec_books_path %></button>
+      <button type="button" class="btn btn-default"><%= link_to 'Add to book', create_rec_book_path(@rec_book) %></button>
+      <button type="button" class="btn btn-default"><%= link_to 'Back', rec_books_path %></button>
 <%end%>
 </div>
