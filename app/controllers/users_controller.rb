@@ -67,7 +67,7 @@ class UsersController < ApplicationController
     if (@user[:email] != "libadmin@tzn.com"  && @user[:email] != current_user[:email])
         @user.destroy
         respond_to do |format|
-          format.html { redirect_to users_url, notice: 'Admin was successfully deleted.' }
+          format.html { redirect_to users_url, notice: 'User was successfully deleted.' }
           format.json { head :no_content }
         end
     else
